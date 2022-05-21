@@ -22,7 +22,7 @@
 					scores: [98,85,90,95]
 				},
 				{
-					name: 'John',
+					name: 'John', 
 					skills: ['HTM','CSS','JS','React'],
 					scores: [85, 80,85,80]
 				}
