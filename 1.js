@@ -1,5 +1,5 @@
 //1.a
-  const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
+ /*  const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
  //array destructuring
  //spread operator is used to clone the array 
  const [name,[...skills],[...scores]] = student
@@ -35,3 +35,41 @@ const convertArrayToObject = (arr) => {
 }
 
 console.log(convertArrayToObject(students))
+ */
+//1.c
+
+const studentObj = {
+    name: 'David',
+    age: 25,
+    skills: {
+        frontEnd: [
+            { skill: 'HTML', level: 10 },
+            { skill: 'CSS', level: 8 },
+            { skill: 'JS', level: 8 },
+            { skill: 'React', level: 9 }
+        ],
+        backEnd: [
+            { skill: 'Node',level: 7 },
+            { skill: 'GraphQL', level: 8 },
+        ],
+        dataBase:[
+            { skill: 'MongoDB', level: 7.5 },
+        ],
+        dataScience:['Python', 'R', 'D3.js']
+    }
+}
+
+//copy of studentObj is made using spreadoperator and then add function is called
+const newStudent ={...studentObj}
+const add =(newStudent )=>{
+    //skills are added to respective arrays
+    newStudent.skills.frontEnd.push({skill:'Bootstrap',level:8})
+    newStudent.skills.backEnd.push({skill:'Express',level:9})
+    newStudent.skills.dataBase.push({skill:'SQL',level:8})
+    newStudent.skills.dataScience.push('SQL')
+    console.log("n",newStudent)
+    //console.log(newStudent.skills)
+    return newStudent
+    
+}
+add(newStudent)
