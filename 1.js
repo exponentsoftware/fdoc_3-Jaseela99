@@ -1,5 +1,5 @@
 //1.a
- /*  const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
+  const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
  //array destructuring
  //spread operator is used to clone the array 
  const [name,[...skills],[...scores]] = student
@@ -35,7 +35,7 @@ const convertArrayToObject = (arr) => {
 }
 
 console.log(convertArrayToObject(students))
- */
+ 
 //1.c
 
 const studentObj = {
@@ -73,3 +73,47 @@ const add =(newStudent )=>{
     
 }
 add(newStudent)
+
+//1.d
+
+const findLengthKeys =(obj)=>{
+    //Object.keys() returns properties of object stored in an array in same order
+    //console.log(Object.keys(obj))
+  return  Object.keys(obj).length
+}
+console.log(findLengthKeys(studentObj))
+
+const findLengthValues =(obj)=>{
+    //Object.values() returns property values of object stored in an array in same order
+    //console.log(Object.values(obj))
+    return Object.values(obj).length
+}
+console.log(findLengthValues(studentObj))
+
+const findLengthSkill =(obj)=>{
+    //length of skillobject keys
+    console.log(Object.keys(obj.skills))
+    return Object.keys(obj.skills).length
+}
+console.log(findLengthSkill(studentObj))
+
+
+const isGraphicDesign =(obj)=>{
+    Object.values(obj.skills) === 'Graphic Design' ?
+    console.log('true') : console.log('false')
+}
+isGraphicDesign(studentObj)
+
+
+//iterate through the object
+const iterate =(obj)=>{
+    //Object.keys() returns properties of object stored in an array in same order
+    for (let i = 0; i < Object.keys(obj).length; i++) {
+        //loops through the array of keys of object
+        console.log(Object.keys(obj)[i])
+    }
+    
+}
+iterate(studentObj)
+
+
