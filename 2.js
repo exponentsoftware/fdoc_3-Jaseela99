@@ -130,3 +130,17 @@ console.log(rateProduct(products,users,'eedfcf','fg12cy',5))
      
 } 
 console.log(averageRating(products,'eedfcf'))
+
+//2.c
+
+const likeProduct =(productArr,userArr,productId,userId) => {
+    //finding product by id
+    const product = productArr.find(product => product._id === productId);
+    //finding user by id
+    const user = userArr.find(user => user._id === userId);
+    //if product and user is found then add like to likes array
+   user&& product && product.likes && product.likes.userId === userId ?( product.likes.pop(userId), console.log("disliked")):(product.likes.push(userId),console.log("liked"));
+    return product
+}
+
+console.log(likeProduct(products,users,'aegfal','zwf8md'))
