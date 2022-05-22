@@ -77,10 +77,10 @@ const users = [
 
 const signUp = (arr,username,email,password) => {
  //check if user already exist and returns a boolean value
-    const newUser = arr.some(user => user.email === email);
+    const newUser = arr.some(user => user.email === email)
     //if it is true then return a message else user will be added to users array
     //newDate() adds current date and time
-    newUser? console.log('User already exists'):arr.push({username,email,password,createdAt:new Date(),isLoggedIn:false});
+    newUser? console.log('User already exists'):arr.push({username,email,password,createdAt:new Date(),isLoggedIn:false})
     return arr;
   
 }
@@ -96,3 +96,37 @@ const SignIn = (arr,email,password) => {
 }
 console.log(SignIn(users,'jasee@gmail.com','Jaseela'))
 
+//2.b
+
+const rateProduct = (productArr,userArr,productId,userId,rate) => {
+    //finding product by id
+    const product = productArr.find(product => product._id === productId);
+
+    //finding user by id
+    const user = userArr.find(user => user._id === userId);
+    //if product and user is found then add rate to ratings array
+    user && product? product.ratings.push({userId,rate}):console.log('Product or user not found');
+    return product
+}
+
+console.log(rateProduct(products,users,'eedfcf','fg12cy',5))
+
+ const averageRating = (productArr,productId) => {
+     //finding product by id
+    const product = productArr.find(product => product._id === productId);
+    console.log("p",product)
+    //userId inside ratings array are added to new array and their length is used to find the rate count
+    const rateCount = product.ratings.map(rating => rating.userId).length
+    console.log("u",rateCount)
+    //to sum the rate of each user
+    //reduce() method reduces the array to a single value
+    //initial value is 0,prev is the previous value and rating is the current value
+    const totalRate = product.ratings.reduce((prev,rating) => prev + rating.rate,0) //0+5-> 5+4.5-> 9.5+5
+    console.log("s",totalRate)
+    //to find the average rate
+    const average = totalRate/rateCount
+    console.log("a",average)
+    return average
+     
+} 
+console.log(averageRating(products,'eedfcf'))

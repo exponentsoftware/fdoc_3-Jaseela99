@@ -67,7 +67,7 @@ const add =(newStudent )=>{
     newStudent.skills.backEnd.push({skill:'Express',level:9})
     newStudent.skills.dataBase.push({skill:'SQL',level:8})
     newStudent.skills.dataScience.push('SQL')
-    console.log("n",newStudent)
+    console.log("n",newStudent.skills)
     //console.log(newStudent.skills)
     return newStudent
     
