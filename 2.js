@@ -115,8 +115,8 @@ console.log(rateProduct(products,users,'eedfcf','fg12cy',5))
      //finding product by id
     const product = productArr.find(product => product._id === productId);
     console.log("p",product)
-    //userId inside ratings array are added to new array and their length is used to find the rate count
-    const rateCount = product.ratings.map(rating => rating.userId).length
+    // length is used to find the rate count
+    const rateCount = product.ratings.length
     console.log("u",rateCount)
     //to sum the rate of each user
     //reduce() method reduces the array to a single value
@@ -131,7 +131,7 @@ console.log(rateProduct(products,users,'eedfcf','fg12cy',5))
 } 
 console.log(averageRating(products,'eedfcf'))
 
-//2.c
+//2.c ??   liked and disliked
 
 const likeProduct =(productArr,userArr,productId,userId) => {
     //finding product by id
@@ -139,8 +139,10 @@ const likeProduct =(productArr,userArr,productId,userId) => {
     //finding user by id
     const user = userArr.find(user => user._id === userId);
     //if product and user is found then add like to likes array
-   user&& product && product.likes && product.likes.userId === userId ?( product.likes.pop(userId), console.log("disliked")):(product.likes.push(userId),console.log("liked"));
+    console.log(product.likes.includes(userId))
+    //if userid is already in there then that index is found and spliced and if the user is new then id is pushed in to likes
+   user && product && product.likes.includes(userId)?( product.likes.splice(product.likes.indexOf(userId),1), console.log("disliked")):(product.likes.push(userId),console.log("liked"));
     return product
 }
 
-console.log(likeProduct(products,users,'aegfal','zwf8md'))
+console.log(likeProduct(products,users,'aegfal','fg12cy'))
